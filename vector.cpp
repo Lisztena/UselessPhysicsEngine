@@ -65,4 +65,9 @@ namespace upe {
 	real vector::getCosine(vector v) {
 		return (*this * v) / (this->getNorm()*v.getNorm());
 	}
+	
+	bool isRightAngled(vector v) {
+		real a = getCosine(v);
+		return a==0?true:false;
+	}
 }
