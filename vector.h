@@ -27,6 +27,7 @@ namespace upe {
 			real getNorm(void);
 			real getNormSquared(void);
 			real getCosine(vector);
+			bool isRightAngled(vector);
 		private:
 	};
 }
