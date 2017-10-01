@@ -3,25 +3,23 @@
 #include <math.h>
 #include "vector.h"
 namespace upe {
-	class masspoint {
+	class Particle {
 		public:
-			masspoint(real m) {
-				mass = m;
+			Particle() {
+				damping = 0.97;
 			}
-			masspoint(real m, vector p) {
-				mass = m;
-				position = p;
-			}
-			masspoint(real m, vector p, vector f) {
-				mass = m;
-				position = p;
-				force = f;
-			}
-			real mass; //kilogram
+			void setMass(real);
+			void setinverseMass(real);
+			void addForce(vector);
+			void removeForce(vector);
+			void integrate(real);
+		protected:
+			real inverseMass; //kilogram
+			real damping;
 			vector force;
+			vector acceleration;
 			vector position;
 			vector velocity;
-			void refreshPos(void);
 		private:
 			vector getAcceleration(void);
 	};
